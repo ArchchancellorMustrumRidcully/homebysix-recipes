@@ -2,14 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v2.2.1 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Cakebrew.</string>
+	<string>Downloads the latest version of Being Boring.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.download.Cakebrew</string>
+	<string>com.github.homebysix.download.BeingBoring</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Cakebrew</string>
+		<string>Being Boring</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -18,17 +20,10 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>appcast_url</key>
-				<string>https://www.cakebrew.com/appcast/profileInfo.php</string>
-			</dict>
-			<key>Processor</key>
-			<string>SparkleUpdateInfoProvider</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%.zip</string>
+				<string>%NAME%.zip</string>
+				<key>url</key>
+				<string>https://www.peterborgapps.com/downloads/BeingBoring.zip</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -54,9 +49,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Cakebrew.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Being Boring.app</string>
 				<key>requirement</key>
-				<string>anchor apple generic and identifier "com.brunophilipe.Cakebrew" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R85D3K8ATT)</string>
+				<string>anchor apple generic and identifier "maccatalyst.com.peterborgapps.BeingBoring" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = HT76L9L9RG)</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -65,7 +60,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Cakebrew.app/Contents/Info.plist</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Being Boring.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>

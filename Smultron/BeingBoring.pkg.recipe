@@ -3,27 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v0.0.4 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v2.2.1 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Celestia and creates a package.</string>
+	<string>Downloads the latest version of Being Boring and creates a package.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.pkg.Celestia</string>
+	<string>com.github.homebysix.pkg.BeingBoring</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Celestia</string>
+		<string>Being Boring</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.homebysix.download.Celestia</string>
+	<string>com.github.homebysix.download.BeingBoring</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>app_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Celestia.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Being Boring.app</string>
 			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>

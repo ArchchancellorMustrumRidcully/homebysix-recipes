@@ -8,8 +8,6 @@
 	<string>com.github.homebysix.pkg.Cakebrew</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.brunophilipe.Cakebrew</string>
 		<key>NAME</key>
 		<string>Cakebrew</string>
 	</dict>
@@ -20,6 +18,11 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Cakebrew.app</string>
+			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
 		</dict>
