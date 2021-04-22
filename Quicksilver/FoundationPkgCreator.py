@@ -1,4 +1,6 @@
 #!/usr/local/autopkg/python
+# -*- coding: utf-8 -*-
+# pylint: disable=no-self-use, no-else-raise, invalid-name
 #
 # Based on AppPkgCreator, Copyright 2016 Greg Neagle
 # Adapted to use Foundation, 2020 Graham Pugh
@@ -42,7 +44,7 @@ from Foundation import (
 __all__ = ["FoundationPkgCreator"]
 
 
-class FoundationPkgCreator(DmgMounter, PkgCreator):
+class FoundationPkgCreator(DmgMounter, PkgCreator):  # pylint: disable=invalid-name
     """Calls autopkgserver to create a package from an application."""
 
     description = __doc__

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright 2018-2020 Elliot Jordan
 #
@@ -24,7 +25,7 @@ from autopkglib import Processor, ProcessorError  # noqa: F401
 __all__ = ["BinaryFileVersioner"]
 
 
-class BinaryFileVersioner(Processor):
+class BinaryFileVersioner(Processor):  # pylint: disable=invalid-name
     """This processor returns the version number of a binary file that has an
     embedded info plist."""
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # Copyright 2015-2020 Elliot Jordan
 # Based on original processor by Nick Gamewell
@@ -22,6 +23,7 @@ import platform
 import socket
 from distutils.version import LooseVersion
 
+# pylint: disable=unused-import
 from autopkglib import Processor, ProcessorError, URLGetter  # noqa: F401
 
 __all__ = ["GoToMeetingURLProvider"]
@@ -77,18 +79,18 @@ class GoToMeetingURLProvider(URLGetter):
                 jsondata = json.loads(f.read())
                 self.output("Encoding: gzip")
 
-        g2m_url = jsondata["activeBuilds"][len(jsondata["activeBuilds"]) - 1].get(
-            "macDownloadUrl"
-        )
+        max_build = max(jsondata["activeBuilds"], key=lambda x: int(x["buildNumber"]))
+        g2m_url = max_build.get("macDownloadUrl")
         if not g2m_url:
             raise ProcessorError(
                 "No download URL for the latest release "
                 "found in the base_url JSON feed."
             )
+        url_parts = g2m_url.split("/")
+        url_parts[-1] = "GoToMeeting.dmg"
+        g2m_url = "/".join(url_parts)
 
-        g2m_build = str(
-            jsondata["activeBuilds"][len(jsondata["activeBuilds"]) - 1]["buildNumber"]
-        )
+        g2m_build = str(max_build["buildNumber"])
 
         return g2m_url, g2m_build
 

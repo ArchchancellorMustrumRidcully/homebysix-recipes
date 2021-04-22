@@ -8,8 +8,6 @@
 	<string>com.github.homebysix.pkg.VyprVPN</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.goldenfrog.VyprVPN</string>
 		<key>NAME</key>
 		<string>VyprVPN</string>
 	</dict>
@@ -20,6 +18,11 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%pathname%/VyprVPN.app</string>
+			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
 		</dict>

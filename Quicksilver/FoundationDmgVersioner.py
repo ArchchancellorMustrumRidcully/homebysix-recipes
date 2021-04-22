@@ -1,4 +1,6 @@
 #!/usr/local/autopkg/python
+# -*- coding: utf-8 -*-
+# pylint: disable=no-self-use, no-else-raise, invalid-name
 #
 # Based on AppDmgVersioner, Copyright 2010 Per Olofsson
 # Adapted to use Foundation, 2020 Graham Pugh
@@ -40,7 +42,7 @@ from Foundation import (
 __all__ = ["FoundationDmgVersioner"]
 
 
-class FoundationDmgVersioner(DmgMounter):
+class FoundationDmgVersioner(DmgMounter):  # pylint: disable=invalid-name
     # we dynamically set the docstring from the description (DRY), so:
     description = "Extracts bundle ID and version of app inside dmg."
     input_variables = {
@@ -126,6 +128,7 @@ class FoundationDmgVersioner(DmgMounter):
         return info
 
     def main(self):
+        """Main process."""
         # Mount the image.
         mount_point = self.mount(self.env["dmg_path"])
         # Wrap all other actions in a try/finally so the image is always
