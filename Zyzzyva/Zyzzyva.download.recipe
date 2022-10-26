@@ -2,35 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v1.0.3 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Numi.</string>
+	<string>Downloads the latest version of Zyzzyva.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.download.Numi</string>
+	<string>com.github.homebysix.download.Zyzzyva</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Numi</string>
+		<string>Zyzzyva</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.6.1</string>
+	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>appcast_url</key>
-				<string>https://s1.numi.app/update</string>
+				<key>re_pattern</key>
+				<string>(/zyzzyva/packages/[\S]+\.dmg)</string>
+				<key>url</key>
+				<string>https://www.scrabbleplayers.org/w/NASPA_Zyzzyva_Download</string>
 			</dict>
 			<key>Processor</key>
-			<string>SparkleUpdateInfoProvider</string>
+			<string>URLTextSearcher</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%-%version%.zip</string>
+				<key>url</key>
+				<string>https://www.scrabbleplayers.org/%match%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -42,23 +42,19 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
+				<key>pattern</key>
+				<string>%pathname%/*/Zyzzyva.app</string>
 			</dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
+			<string>FileFinder</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Numi.app</string>
+				<string>%pathname%/%dmg_found_filename%</string>
 				<key>requirement</key>
-				<string>anchor apple generic and identifier "com.dmitrynikolaev.numi" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4BT8G3UCSZ")</string>
+				<string>identifier "org.scrabbleplayers.zyzzyva" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UMTH77L6RR</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -67,7 +63,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Numi.app/Contents/Info.plist</string>
+				<string>%pathname%/%dmg_found_filename%/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
