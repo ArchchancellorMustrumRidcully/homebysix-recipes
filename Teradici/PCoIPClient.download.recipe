@@ -3,31 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v1.1.2 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Created with Recipe Robot v2.3.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of NightOwl.</string>
+	<string>Downloads the latest version of Teradici / HP PCoIPClient.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.download.NightOwl</string>
+	<string>com.github.homebysix.download.PCoIPClient</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>NightOwl</string>
+		<string>PCoIPClient</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://dl.teradici.com/DeAdBCiUYInHcSTy/pcoip-client/raw/names/pcoip-client-dmg/versions/latest/pcoip-client_latest.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.1.0</string>
+	<string>2.3</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>DeprecationWarning</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>https://nightowl.kramser.xyz/files/NightOwl.dmg</string>
+				<string>%DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -40,9 +38,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/NightOwl.app</string>
+				<string>%pathname%/PCoIPClient.app</string>
 				<key>requirement</key>
-				<string>anchor apple generic and identifier "com.fuekiin.NightOwl" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7J27HUBW2X")</string>
+				<string>identifier "com.teradici.pcoipclient" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = RU4LW7W32C</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -51,7 +49,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%pathname%/NightOwl.app/Contents/Info.plist</string>
+				<string>%pathname%/PCoIPClient.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>

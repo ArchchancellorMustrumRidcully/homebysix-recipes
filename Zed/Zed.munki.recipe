@@ -5,15 +5,15 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.3.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Warp and imports it into Munki.</string>
+	<string>Downloads the latest version of Zed and imports it into Munki.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.munki.Warp</string>
+	<string>com.github.homebysix.munki.Zed</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>Warp</string>
+		<string>Zed</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -21,11 +21,11 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>Fast Terminal app based in Rust.</string>
+			<string>Lightweight, responsive text editor and integrated development environment (IDE).</string>
 			<key>developer</key>
-			<string>Denver Technologies</string>
+			<string>Zed Industries</string>
 			<key>display_name</key>
-			<string>Warp</string>
+			<string>Zed</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -33,9 +33,9 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.0.0</string>
+	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.github.homebysix.download.Warp</string>
+	<string>com.github.homebysix.download.Zed</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -45,11 +45,6 @@
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>additional_makepkginfo_options</key>
-				<array>
-					<string>--pkgvers</string>
-					<string>%version%</string>
-				</array>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>

@@ -2,26 +2,29 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v2.3.1 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Greenfoot and creates a package.</string>
+	<string>Installs the current release of Escrow Buddy from Github.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.pkg.Greenfoot</string>
+	<string>com.github.homebysix.install.EscrowBuddy</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Greenfoot</string>
+		<string>Escrow Buddy</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>2.3</string>
+	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.homebysix.download.Greenfoot</string>
+	<string>com.github.homebysix.download.EscrowBuddy</string>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+			</dict>
 			<key>Processor</key>
-			<string>AppPkgCreator</string>
+			<string>Installer</string>
 		</dict>
 	</array>
 </dict>

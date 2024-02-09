@@ -3,38 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of VirtualBox</string>
+	<string>Downloads the current release of Escrow Buddy from Github.</string>
 	<key>Identifier</key>
-	<string>com.github.homebysix.download.VirtualBox</string>
+	<string>com.github.homebysix.download.EscrowBuddy</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>VirtualBox</string>
+		<string>Escrow Buddy</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.6.0</string>
+	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>comment</key>
-				<string>Example: https://download.virtualbox.org/virtualbox/4.3.10/VirtualBox-4.3.10-93012-OSX.dmg</string>
-				<key>re_pattern</key>
-				<string>https://download\.virtualbox\.org/virtualbox/.*?/VirtualBox-.*?-OSX.dmg</string>
-				<key>url</key>
-				<string>https://www.virtualbox.org/wiki/Downloads</string>
+				<key>github_repo</key>
+				<string>macadmins/escrow-buddy</string>
 			</dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
-				<key>url</key>
-				<string>%match%</string>
+				<string>%NAME%-%version%.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -48,12 +42,12 @@
 			<dict>
 				<key>expected_authority_names</key>
 				<array>
-					<string>Developer ID Installer: Oracle America, Inc. (VB5E2TV963)</string>
+					<string>Developer ID Installer: Mac Admins Open Source (T4SK8ZXCXG)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
 				<key>input_path</key>
-				<string>%pathname%/VirtualBox.pkg</string>
+				<string>%pathname%</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
